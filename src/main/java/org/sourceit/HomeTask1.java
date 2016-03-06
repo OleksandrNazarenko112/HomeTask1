@@ -23,7 +23,13 @@ public class HomeTask1 {
      * @return значение гипотенузы.
      */
     public static double findHypotenuse(double a, double b) {
-        return 0D;
+
+        double c = Math.sqrt((a*a) + (b*b));
+        if (a * b != 0) {
+            return c;
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -34,10 +40,10 @@ public class HomeTask1 {
      * @param c
      * @return периметр треугольника.
      */
-    public static double perimeter(double a, double b, double c) {
-        return 0D;
+    public static double perimeter(double a, double b, double c){
+        double p = (a+b+c);
+        return p;
     }
-
     /**
      * Метод находит площадь треугольника.
      * Значения должны быть больше 0.
@@ -47,7 +53,14 @@ public class HomeTask1 {
      * @return площадь треугольника.
      */
     public static double area(double a, double b) {
-        return 0D;
+        double c = Math.sqrt((a * a) + (b * b));
+        double p = (a + b + c) / 2;
+        double area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        if (a * b != 0) {
+            return area;
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -57,8 +70,8 @@ public class HomeTask1 {
      * @param max саксимальное значение.
      * @return сгенерированное число.
      */
-    public static int generateNumberFromRange(int min, int max) {
-        return 0;
+    public static int generateNumberFromRange(int min, int max){
+        return min + (int) (Math.random()*(max-min))+1;
     }
 
     /**
@@ -96,4 +109,20 @@ public class HomeTask1 {
     public static boolean isHappy(long ticket) {
         return false;
     }
+
+    public static void main(String[] args) {
+
+        if (isEven (11)) {
+            System.out.println("Четное" );
+        }
+        else{
+            System.out.println("Не четное" );
+        }
+        System.out.println("Гипотенуза равна "
+                + findHypotenuse(8, 5));
+        System.out.println("Периметр треугольника " + perimeter(1, 2, 3));
+        System.out.println("Площадь треугольника " + area(5,2));
+        System.out.println("Случайное число " + generateNumberFromRange (12,18));
+    }
 }
+
