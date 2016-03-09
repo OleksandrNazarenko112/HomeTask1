@@ -53,6 +53,7 @@ public class HomeTask1 {
      * @return площадь треугольника.
      */
     public static double area(double a, double b) {
+
         double c = Math.sqrt((a * a) + (b * b));
         double p = (a + b + c) / 2;
         double area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
@@ -83,8 +84,14 @@ public class HomeTask1 {
      * @return сумма цифр.
      */
     public static long calculateSum(long number) {
-        return 0L;
+        if (number != 0) {
+            return number % 10 + calculateSum(number / 10);
+        } else {
+            return 0;
+        }
     }
+
+
 
     /**
      * Посчитайте элемент последовательности Фибоначчи.
@@ -95,7 +102,10 @@ public class HomeTask1 {
      * @return элемент последовательности.
      */
     public static int fibonacci(int till) {
-        return 0;
+//        while (till > 1){
+//            return 2 + till+ (till+till);
+//        }
+//        return 0;
     }
 
     /**
@@ -123,6 +133,8 @@ public class HomeTask1 {
         System.out.println("Периметр треугольника " + perimeter(1, 2, 3));
         System.out.println("Площадь треугольника " + area(5,2));
         System.out.println("Случайное число " + generateNumberFromRange (12,18));
+        System.out.println("Сумма чисел " + calculateSum (-111));
+        System.out.println("Фибаначи " + fibonacci (1));
     }
 }
 
