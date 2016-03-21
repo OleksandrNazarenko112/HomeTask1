@@ -24,7 +24,7 @@ public class HomeTask1 {
      */
     public static double findHypotenuse(double a, double b) {
 
-        double c = Math.sqrt((a*a) + (b*b));
+        double c = Math.sqrt((a * a) + (b * b));
         if (a * b != 0) {
             return c;
         } else {
@@ -40,10 +40,11 @@ public class HomeTask1 {
      * @param c
      * @return периметр треугольника.
      */
-    public static double perimeter(double a, double b, double c){
-        double p = (a+b+c);
+    public static double perimeter(double a, double b, double c) {
+        double p = (a + b + c);
         return p;
     }
+
     /**
      * Метод находит площадь треугольника.
      * Значения должны быть больше 0.
@@ -71,8 +72,8 @@ public class HomeTask1 {
      * @param max саксимальное значение.
      * @return сгенерированное число.
      */
-    public static int generateNumberFromRange(int min, int max){
-        return min + (int) (Math.random()*(max-min))+1;
+    public static int generateNumberFromRange(int min, int max) {
+        return min + (int) (Math.random() * (max - min)) + 1;
     }
 
     /**
@@ -92,7 +93,6 @@ public class HomeTask1 {
     }
 
 
-
     /**
      * Посчитайте элемент последовательности Фибоначчи.
      * Первый и второй члены последовательности равны единицам,
@@ -102,11 +102,16 @@ public class HomeTask1 {
      * @return элемент последовательности.
      */
     public static int fibonacci(int till) {
-//        while (till > 1){
-//            return 2 + till+ (till+till);
-//        }
-//        return 0;
+
+        if (till <= 0) {
+            return 1;
+        }
+        if (till <= 2)
+            return 1;
+        else
+            return fibonacci(till - 1) + fibonacci(till - 2);
     }
+
 
     /**
      * "Счастливым" считается билетик у которого
@@ -117,24 +122,37 @@ public class HomeTask1 {
      * @return является ли билет счастливым.
      */
     public static boolean isHappy(long ticket) {
-        return false;
+        boolean a = true;
+        boolean b = false;
+
+
+            Long i1 = ticket % 10;
+            Long i2 = (ticket / 10) % 10;
+            Long i3 = (ticket / 100) % 10;
+            Long i4 = (ticket / 1000) % 10;
+            long i5 = (ticket / 10000) % 10;
+            long i6 = ticket/100000;
+            if ((i1 + i2 + i3) == (i4 + i5 + i6))return a;
+
+        return b;
     }
 
-    public static void main(String[] args) {
+        public static void main (String[]args){
 
-        if (isEven (11)) {
-            System.out.println("Четное" );
+            if (isEven(11)) {
+                System.out.println("Четное");
+            } else {
+                System.out.println("Не четное");
+            }
+            System.out.println("Гипотенуза равна "
+                    + findHypotenuse(8, 5));
+            System.out.println("Периметр треугольника " + perimeter(1, 2, 3));
+            System.out.println("Площадь треугольника " + area(5, 2));
+            System.out.println("Случайное число " + generateNumberFromRange(-100, 100));
+            System.out.println("Сумма чисел " + calculateSum(-111));
+            System.out.println("элемент последовательности Фибоначи: " + fibonacci(0));
+            System.out.println(isHappy(600006));
+
         }
-        else{
-            System.out.println("Не четное" );
         }
-        System.out.println("Гипотенуза равна "
-                + findHypotenuse(8, 5));
-        System.out.println("Периметр треугольника " + perimeter(1, 2, 3));
-        System.out.println("Площадь треугольника " + area(5,2));
-        System.out.println("Случайное число " + generateNumberFromRange (12,18));
-        System.out.println("Сумма чисел " + calculateSum (-111));
-        System.out.println("Фибаначи " + fibonacci (1));
-    }
-}
 
